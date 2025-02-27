@@ -54,6 +54,10 @@ serviceDns:
   # -- A fixed `spec.loadBalancerIP` for the IPv6 DNS Service
   loadBalancerIPv6: ""
 
+  # -- Add a release selector for the service. If `false` then all `app:
+  #    pihole` will be targeted, even from other releases in the same namespace.
+  singleRelease: true
+
   # -- Annotations for the DNS service
   annotations: {}
     # metallb.universe.tf/address-pool: network-services
