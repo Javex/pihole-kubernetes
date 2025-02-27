@@ -34,6 +34,9 @@ dnsHostPort:
 
 # -- Configuration for the DNS service on port 53
 serviceDns:
+  # -- set to false to avoid creating DNS service. Only makes sense if it's
+  # created in some other way.
+  enabled: true
   # -- deploys a mixed (TCP + UDP) Service instead of separate ones
   mixedService: false
 
