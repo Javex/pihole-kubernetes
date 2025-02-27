@@ -40,7 +40,9 @@ spec:
       name: dns-udp
   selector:
     app: {{ template "pihole.name" . }}
+    {{- if .Values.serviceDns.singleRelease }}
     release: {{ .Release.Name }}
+    {{- end }}
 ---
 {{- if and (.Values.dualStack.enabled) (eq .Values.serviceDns.type "LoadBalancer") -}}
 apiVersion: v1
@@ -75,6 +77,8 @@ spec:
       name: dns-udp
   selector:
     app: {{ template "pihole.name" . }}
+    {{- if .Values.serviceDns.singleRelease }}
     release: {{ .Release.Name }}
+    {{- end }}
 {{- end }}
 {{- end }}
