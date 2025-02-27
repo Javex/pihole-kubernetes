@@ -1,3 +1,4 @@
+{{- if .Values.serviceDns.enabled }}
 {{- if not .Values.serviceDns.mixedService }}
 apiVersion: v1
 kind: Service
@@ -92,5 +93,6 @@ spec:
     {{- if .Values.serviceDns.singleRelease }}
     release: {{ .Release.Name }}
     {{- end }}
+{{- end }}
 {{- end }}
 {{- end }}
